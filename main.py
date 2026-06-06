@@ -15,6 +15,8 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
+app.config["SESSION_TYPE"] = os.environ.get("SESSION_TYPE", "filesystem")
+
 # app.config['SESSION_TYPE'] = 'filesystem'
 # app.config['SESSION_PERMANENT'] = False
 Session(app)
